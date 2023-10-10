@@ -28,30 +28,30 @@ ctrl-c: Copy to Clipboard'"
 
 export PATH="/usr/local/sbin:$PATH"
 
-# openssl
+######### openssl
 export LIBRARY_PATH="/usr/local/opt/openssl@3/lib"
 
-# ruby
+######### ruby
 export PATH="${HOME}/.gem/ruby/2.6.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
-# openjdk
+######### openjdk
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 # export CPPFLAGS="-I/usr/local/opt/openjdk@11/include"
 
-# pyenv
+######### pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# editor
+######### editor
 export EDITOR="emacsclient"
 export ALTERNATE_EDITOR="nvim"
 
-# nvm
+######### nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
