@@ -43,9 +43,9 @@ export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 # export CPPFLAGS="-I/usr/local/opt/openjdk@11/include"
 
 # pyenv
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-pyenv global $(pyenv versions --bare --skip-aliases | egrep "^(\.?[[:digit:]]+)+$" | sort -rV)
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # editor
 export EDITOR="emacsclient"
