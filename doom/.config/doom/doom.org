@@ -1,0 +1,438 @@
+# #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+title: Doom
+#+OPTIONS: num:nil ^:{}
+
+* Command Abbreviations
+- =C= - "Control" key
+- =M= - "Alt" or "Option" key
+- =S= - "Super" or "Command" key
+- =SPC= - "Space" key
+
+* General
+| EVIL        | EMACS |                          |
+|-------------+-------+--------------------------|
+| SPC h k     |       | For a keybind            |
+| SPC h v     |       | For a variables          |
+| SPC h f     |       | For a function           |
+| SPC RET     |       | Jump to bookmark         |
+| SPC SHIFT , |       | Switch to all buffers    |
+| SPC `       |       | Switch to last buffer    |
+| SPC ;       |       | Eval                     |
+| SPC <       | C-x b | Switch buffer            |
+| SPC :       | M-x   | Open command             |
+|             | C-z   | Toggle Evil mode         |
+
+** +Help
+*** Doom
+| EVIL        | NORMAL        |                               |
+|-------------+---------------+-------------------------------|
+| SPC h d b   | M-SPC h d b   | doom/report-bug               |
+| SPC h d c   | M-SPC h d c   | doom/goto-private-config-...  |
+| SPC h d C   | M-SPC h d C   | doom/goto-private-init-file   |
+| SPC h d d   | M-SPC h d d   | doom-debug-mode               |
+| SPC h d f   | M-SPC h d f   | doom/help-faq                 |
+| SPC h d h   | M-SPC h d h   | doom/help                     |
+| SPC h d l   | M-SPC h d l   | doom/help-search-load-path    |
+| SPC h d L   | M-SPC h d L   | doom/help-search-loaded-fi... |
+| SPC h d m   | M-SPC h d m   | doom/help-modules             |
+| SPC h d n   | M-SPC h d n   | doom/help-news                |
+| SPC h d N   | M-SPC h d N   | doom/help-search-news         |
+| SPC h d s   | M-SPC h d s   | doom/help-search-headings     |
+| SPC h d S   | M-SPC h d S   | doom/help-search              |
+| SPC h d t   | M-SPC h d t   | doom/toggle-profiler          |
+| SPC h d u   | M-SPC h d u   | doom/help-autodefs            |
+| SPC h d v   | M-SPC h d v   | doom/version                  |
+| SPC h d x   | M-SPC h d x   | doom/sandbox                  |
+| SPC h d p c | M-SPC h d p c | doom/help-package-config      |
+| SPC h d p d | M-SPC h d p d | doom/goto-private-packages... |
+| SPC h d p h | M-SPC h d p h | doom/help-package-homepage    |
+| SPC h d p p | M-SPC h d p p | doom/help-packages            |
+
+*** Bindings
+| EVIL      | NORMAL      |                               |
+|-----------+-------------+-------------------------------|
+| SPC h b b | M-SPC h b b | describe-bindings             |
+| SPC h b f | M-SPC h b f | which-key-show-full-keymap    |
+| SPC h b i | M-SPC h b i | which-key-show-minor-moder... |
+| SPC h b k | M-SPC h b k | which-key-show-keymap         |
+| SPC h b m | M-SPC h b m | which-key-show-major-mode     |
+| SPC h b t | M-SPC h b t | which-key-show-top-level      |
+
+*** Reload
+| EVIL      | NORMAL      |                      |
+|-----------+-------------+----------------------|
+| SPC h r e | M-SPC h r e | doom/reload-env      |
+| SPC h r f | M-SPC h r f | doom/reload-font     |
+| SPC h r p | M-SPC h r p | doom/reload-packages |
+| SPC h r r | M-SPC h r r | doom/reload          |
+| SPC h r t | M-SPC h r t | doom/reload-theme    |
+
+** +Workspaces
+| EVIL        | NORMAL        | EMACS |                           |
+|-------------+---------------+-------+---------------------------|
+| SPC TAB TAB | M-SPC TAB TAB |       | Display tab bar           |
+| SPC TAB .   | M-SPC TAB .   |       | Switch workspace          |
+| SPC TAB 0   | M-SPC TAB 0   |       | Switch to final workspace |
+| SPC TAB 1   | M-SPC TAB 1   | M-1   | Switch to 1st workspace   |
+| SPC TAB 2   | M-SPC TAB 2   | M-2   | Switch to 2nd workspace   |
+| SPC TAB 3   | M-SPC TAB 3   | M-3   | Switch to 3rd workspace   |
+| SPC TAB 4   | M-SPC TAB 4   | M-4   | Switch to 4th workspace   |
+| SPC TAB 5   | M-SPC TAB 5   | M-5   | Switch to 5th workspace   |
+| SPC TAB 6   | M-SPC TAB 6   | M-6   | Switch to 6th workspace   |
+| SPC TAB 7   | M-SPC TAB 7   | M-7   | Switch to 7th workspace   |
+| SPC TAB 8   | M-SPC TAB 8   | M-8   | Switch to 8th workspace   |
+| SPC TAB 9   | M-SPC TAB 9   | M-9   | Switch to 9th workspace   |
+| SPC TAB [   | M-SPC TAB [   |       | Previous workspace        |
+| SPC TAB ]   | M-SPC TAB ]   |       | Next workspace            |
+| SPC TAB `   | M-SPC TAB `   |       | Switch to last workspace  |
+| SPC TAB d   | M-SPC TAB d   |       | Delete this workspace     |
+| SPC TAB l   | M-SPC TAB l   |       | Load workspace from file  |
+| SPC TAB n   | M-SPC TAB n   |       | New workspace             |
+| SPC TAB N   | M-SPC TAB N   |       | New named workspace       |
+| SPC TAB r   | M-SPC TAB r   |       | Rename workspace          |
+| SPC TAB R   | M-SPC TAB R   |       | Restore last session      |
+| SPC TAB s   | M-SPC TAB s   |       | Save workspace to file    |
+| SPC TAB x   | M-SPC TAB x   |       | Delete session            |
+
+** +Buffer
+| EVIL    | NORMAL    | EMACS   | OHTER |                           |
+|---------+-----------+---------+-------+---------------------------|
+| SPC b - | M-SPC b - |         |       | Toggle narrowing          |
+| SPC b [ | M-SPC b [ |         |       | Previous buffer           |
+| SPC b ] | M-SPC b ] |         |       | Next buffer               |
+| SPC b b | M-SPC b b |         | SPC , | Switch workspace buffer   |
+| SPC b B | M-SPC b B |         |       | Switch buffer             |
+| SPC b c | M-SPC b c |         |       | Clone buffer              |
+| SPC b C | M-SPC b C |         |       | Clone buffer other window |
+| SPC b d | M-SPC b d |         | zx    | Kill current buffer       |
+| SPC b i | M-SPC b i |         |       | ibuffer                   |
+| SPC b I | M-SPC b I |         |       | ibuffer workspace         |
+| SPC b k | M-SPC b k |         |       | Kill buffer               |
+| SPC b K | M-SPC b K |         |       | Kill all buffers          |
+| SPC b l | M-SPC b l |         |       | Switch to last buffer     |
+| SPC b m | M-SPC b m |         |       | Set bookmark              |
+| SPC b M | M-SPC b M |         |       | Delete bookmark           |
+| SPC b n | M-SPC b n |         |       | Next buffer               |
+| SPC b N | M-SPC b N |         |       | New empty buffer          |
+| SPC b O | M-SPC b O |         |       | Kill other buffers        |
+| SPC b p | M-SPC b p |         |       | Previous buffer           |
+| SPC b r | M-SPC b r |         |       | Revert buffer             |
+| SPC b R | M-SPC b R |         |       | Rename buffer             |
+| SPC b s | M-SPC b s |         |       | Save buffer               |
+| SPC b S | M-SPC b S |         |       | Save all buffers          |
+| SPC b u | M-SPC b u |         |       | Save buffer as root       |
+| SPC b x | M-SPC b x |         |       | Pop up scratch buffer     |
+| SPC b X | M-SPC b X |         |       | Switch to scratch buffer  |
+| SPC b y | M-SPC b y | C-x h y |       | Yank buffer               |
+| SPC b z | M-SPC b z |         |       | Bury buffer               |
+| SPC b Z | M-SPC b Z |         |       | Kill buried buffers       |
+
+** +Code
+| EVIL    | NORMAL    | EMACS        |                                       |
+|---------+-----------+--------------+---------------------------------------|
+| SPC c a | M-SPC c a |              | LSP Execute code action               |
+| SPC c c | M-SPC c c |              | Compile                               |
+| SPC c C | M-SPC c C |              | Recompile                             |
+| SPC c d | M-SPC c d |              | Jump to definition                    |
+| SPC c D | M-SPC c D |              | Jump to references                    |
+| SPC c e | M-SPC c e | M-x quickrun | Evaluate buffer/region *(limits 10s)* |
+| SPC c E | M-SPC c E |              | Evaluate & replace region             |
+| SPC c f | M-SPC c f |              | Format buffer/region                  |
+| SPC c i | M-SPC c i |              | Find implementations                  |
+| SPC c j | M-SPC c j |              | Jump to symbol in current             |
+| SPC c J | M-SPC c J |              | Jump to symbol in any work...         |
+| SPC c k | M-SPC c k |              | Jump to documentation                 |
+| SPC c l | M-SPC c l |              | LSP                                   |
+| SPC c o | M-SPC c o |              | LSP Organize imports                  |
+| SPC c r | M-SPC c r |              | LSP Rename                            |
+| SPC c s | M-SPC c s |              | Send to repl                          |
+| SPC c t | M-SPC c t |              | Find type definition                  |
+| SPC c w | M-SPC c w |              | Delete trailing whitespace            |
+| SPC c W | M-SPC c W |              | Delete trailing newlines              |
+| SPC c x | M-SPC c x |              | List errors                           |
+
+** +File
+| EVIL    | NORMAL    | EMACS   | OTHER |                             |
+|---------+-----------+---------+-------+-----------------------------|
+| SPC f c | M-SPC f c |         |       | Open project editorconfig   |
+| SPC f C | M-SPC f C |         |       | Copy this file              |
+| SPC f d | M-SPC f d |         |       | Find directory              |
+| SPC f D | M-SPC f D |         |       | Delete this file            |
+| SPC f e | M-SPC f e |         |       | Find file in emacs.d        |
+| SPC f E | M-SPC f E |         |       | Browse emacs.d              |
+| SPC f f | M-SPC f f |         | SPC . | Find file                   |
+| SPC f F | M-SPC f F |         |       | Find file from here         |
+| SPC f l | M-SPC f l |         |       | Locate file                 |
+| SPC f p | M-SPC f p |         |       | Find file in private config |
+| SPC f P | M-SPC f P |         |       | Browse private config       |
+| SPC f r | M-SPC f r |         |       | Recent files                |
+| SPC f R | M-SPC f R |         |       | Rename/move file            |
+| SPC f s | M-SPC f s | C-x C-s |       | Save file                   |
+| SPC f S | M-SPC f S |         |       | Save file as...             |
+| SPC f u | M-SPC f u |         |       | Sudo find file              |
+| SPC f U | M-SPC f U |         |       | Sudo this file              |
+| SPC f y | M-SPC f y |         |       | Yank file path              |
+| SPC f Y | M-SPC f Y |         |       | Yank file path from project |
+
+** +Git
+| EVIL      | NORMAL      | EMACS |                        |
+|-----------+-------------+-------+------------------------|
+| SPC g g   | M-SPC g g   | C-x g | Magit status           |
+| SPC g o h | M-SPC g o h |       | Browse homepage        |
+| SPC g Y   | M-SPC g Y   |       | Copy link to homepage  |
+| SPC g o o | M-SPC g o o |       | Browse file or region  |
+| Spc g y   | M-Spc g y   |       | Copy link current file |
+| SPC g '   | M-SPC g '   |       | Forge dispatch         |
+| SPC g .   | M-SPC g .   |       | Magit file dispatch    |
+| SPC g /   | M-SPC g /   |       | Magit dispatch         |
+| SPC g [   | M-SPC g [   |       | Jump to previous hunk  |
+| SPC g ]   | M-SPC g ]   |       | Jump to next hunk      |
+| SPC g b   | M-SPC g b   |       | Magit switch branch    |
+| SPC g B   | M-SPC g B   |       | Magit blame            |
+| SPC g c R | M-SPC g c R |       | Clone repo             |
+| SPC g c b | M-SPC g c b |       | Branch                 |
+| SPC g c c | M-SPC g c c |       | Commit                 |
+| SPC g c f | M-SPC g c f |       | Fixup                  |
+| SPC g c i | M-SPC g c i |       | Issue                  |
+| SPC g c p | M-SPC g c p |       | Pull request           |
+| SPC g c r | M-SPC g c r |       | Initialize repo        |
+| SPC g C   | M-SPC g C   |       | Magit clone            |
+| SPC g D   | M-SPC g D   |       | Magit file delete      |
+| SPC g f c | M-SPC g f c |       | Find commit            |
+| SPC g f f | M-SPC g f f |       | Find file              |
+| SPC g f g | M-SPC g f g |       | Find gitconfig file    |
+| SPC g f i | M-SPC g f i |       | Find issue             |
+| SPC g f p | M-SPC g f p |       | Find pull request      |
+| SPC g F   | M-SPC g F   |       | Magit fetch            |
+| SPC g g   | M-SPC g g   |       | Magit status           |
+| SPC g G   | M-SPC g G   |       | Magit status here      |
+| SPC g l i | M-SPC g l i |       | List issues            |
+| SPC g l n | M-SPC g l n |       | List notifications     |
+| SPC g l p | M-SPC g l p |       | List pull requests     |
+| SPC g l r | M-SPC g l r |       | List repositories      |
+| SPC g l s | M-SPC g l s |       | List submodules        |
+| SPC g L   | M-SPC g L   |       | Magit buffer log       |
+| SPC g o c | M-SPC g o c |       | Browse commit          |
+| SPC g o i | M-SPC g o i |       | Browse an issue        |
+| SPC g o I | M-SPC g o I |       | Browse issues          |
+| SPC g o p | M-SPC g o p |       | Browse a pull request  |
+| SPC g o P | M-SPC g o P |       | Browse pull requests   |
+| SPC g o r | M-SPC g o r |       | Browse remote          |
+| SPC g r   | M-SPC g r   |       | Revert hunk at point   |
+| SPC g R   | M-SPC g R   |       | Revert file            |
+| SPC g s   | M-SPC g s   |       | stage hunk at point    |
+| SPC g S   | M-SPC g S   |       | Git stage file         |
+| SPC g t   | M-SPC g t   |       | Git time machine       |
+| SPC g U   | M-SPC g U   |       | Git unstage file       |
+
+** +Insert
+| EVIL    | NORMAL    | EMACS     |                    |
+|---------+-----------+-----------+--------------------|
+| SPC i e | M-SPC i e |           | Emoji              |
+| SPC i f | M-SPC i f |           | Current file name  |
+| SPC i F | M-SPC i F |           | Current file path  |
+| SPC i p | M-SPC i p |           | Evil ex path       |
+| SPC i r | M-SPC i r |           | From evil register |
+| SPC i s | M-SPC i s |           | Snippet            |
+| SPC i u | M-SPC i u |           | Unicode            |
+| SPC i y | M-SPC i y |           | From clipboard     |
+|         |           | C-x 8 e l | emoji-list         |
+|         |           | C-x 8 e i | emoji-insert       |
+|         |           | C-x 8 e r | emoji-recent       |
+|         |           | C-x 8 e s | emoji-search       |
+
+** +Open
+| EVIL      | NORMAL      |                           |
+|-----------+-------------+---------------------------|
+| SPC o a a | M-SPC o a a | Agenda                    |
+| SPC o a m | M-SPC o a m | Tags search               |
+| SPC o a t | M-SPC o a t | Todo list                 |
+| SPC o a v | M-SPC o a v | View search               |
+| SPC o A   | M-SPC o A   | Org agenda                |
+| SPC o b   | M-SPC o b   | Default browser           |
+| SPC o d   | M-SPC o d   | Start debugger            |
+| SPC o D   | M-SPC o D   | Docker                    |
+| SPC o f   | M-SPC o f   | New frame                 |
+| SPC o F   | M-SPC o F   | Select frame              |
+| SPC o i   | M-SPC o i   | Open in iTerm             |
+| SPC o I   | M-SPC o I   | Open in new iTerm window  |
+| SPC o l   | M-SPC o l   | Send to Launchbar         |
+| SPC o L   | M-SPC o L   | Send project to Launchbar |
+| SPC o o   | M-SPC o o   | Reveal in Finder          |
+| SPC o O   | M-SPC o O   | Reveal project in Finder  |
+| SPC o r   | M-SPC o r   | REPL                      |
+| SPC o R   | M-SPC o R   | REPL (same window)        |
+| SPC o t   | M-SPC o t   | Toggle vterm popup        |
+| SPC o T   | M-SPC o T   | Open vterm here           |
+| SPC o u   | M-SPC o u   | Send to Transmit          |
+| SPC o U   | M-SPC o U   | Send project to Transmit  |
+
+** +Project
+| EVIL    | NORMAL    | OTHER   |                             |
+|---------+-----------+---------+-----------------------------|
+| SPC p ! | M-SPC p ! |         | Run cd in project root      |
+| SPC p & | M-SPC p & |         | Async cmd in project root   |
+| SPC p . | M-SPC p . |         | Browse project              |
+| SPC p > | M-SPC p > |         | Browse other project        |
+| SPC p a | M-SPC p a |         | Add new project             |
+| SPC p b | M-SPC p b |         | Switch to project buffer    |
+| SPC p c | M-SPC p c |         | Compile in project          |
+| SPC p C | M-SPC p C |         | Repeat last command         |
+| SPC p d | M-SPC p d |         | Remove known project        |
+| SPC p D | M-SPC p D |         | Discover projects in folder |
+| SPC p e | M-SPC p e |         | Edit project .dir-locals    |
+| SPC p f | M-SPC p f | SPC SPC | Find file in project        |
+| SPC p F | M-SPC p F |         | Find file in other project  |
+| SPC p g | M-SPC p g |         | Configure project           |
+| SPC p i | M-SPC p i |         | Invalidate project cache    |
+| SPC p k | M-SPC p k |         | Kill project buffers        |
+| SPC p o | M-SPC p o |         | Find other file             |
+| SPC p p | M-SPC p p |         | Switch project              |
+| SPC p r | M-SPC p r |         | Find recent project files   |
+| SPC p R | M-SPC p R |         | Run project                 |
+| SPC p s | M-SPC p s |         | Save project files          |
+| SPC p t | M-SPC p t |         | List project todos          |
+| SPC p T | M-SPC p T |         | Test project                |
+| SPC p x | M-SPC p x |         | Pop up scratch buffer       |
+| SPC p X | M-SPC p X |         | Switch to scratch buffer    |
+
+** +Quit/Session
+| EVIL    | NORMAL    |                            |
+|---------+-----------+----------------------------|
+| SPC q d | M-SPC q d | Restart emacs server       |
+| SPC q f | M-SPC q f | Delete frame               |
+| SPC q F | M-SPC q F | Clear current frame        |
+| SPC q K | M-SPC q K | Kill Emacs (and daemon)    |
+| SPC q l | M-SPC q l | Restore last session       |
+| SPC q L | M-SPC q L | Restore session from file  |
+| SPC q q | M-SPC q q | Quit Emacs                 |
+| SPC q Q | M-SPC q Q | Quit Emacs without saving  |
+| SPC q r | M-SPC q r | Restart & restore Emacs    |
+| SPC q R | M-SPC q R | Restart Emacs              |
+| SPC q s | M-SPC q s | Quick save current session |
+| SPC q S | M-SPC q S | Save session to file       |
+
+** +Search
+| EVIL    | NORMAL    | OTHER |                               |
+|---------+-----------+-------+-------------------------------|
+| SPC s b | M-SPC s b |       | Search buffer                 |
+| SPC s B | M-SPC s B |       | Search all open buffers       |
+| SPC s d | M-SPC s d |       | Search current directory      |
+| SPC s D | M-SPC s D |       | Search other directory        |
+| SPC s e | M-SPC s e |       | Search emacs.d                |
+| SPC s f | M-SPC s f |       | Locate file                   |
+| SPC s i | M-SPC s i |       | Jump to symbol                |
+| SPC s j | M-SPC s j |       | Jump list                     |
+| SPC s k | M-SPC s k |       | Look up in local docsets      |
+| SPC s K | M-SPC s K |       | Look up in all docsets        |
+| SPC s l | M-SPC s l |       | Jump to visible link          |
+| SPC s L | M-SPC s L |       | Jump to link                  |
+| SPC s m | M-SPC s m |       | Jump to bookmark              |
+| SPC s o | M-SPC s o |       | Look up online                |
+| SPC s O | M-SPC s O |       | Look up online (w/ prompt)    |
+| SPC s p | M-SPC s p | SPC / | Search project                |
+| SPC s P | M-SPC s P |       | Search other project          |
+| SPC s r | M-SPC s r |       | Jump to mark                  |
+| SPC s s | M-SPC s s |       | Search buffer                 |
+| SPC s S | M-SPC s S |       | Search buffer for thing at... |
+| SPC s t | M-SPC s t |       | Dictionary                    |
+| SPC s T | M-SPC s T |       | Thesaurus                     |
+
+** +Toggle
+| EVIL    | NORMAL    |                       |
+|---------+-----------+-----------------------|
+| SPC t b | M-SPC t b | Big mode              |
+| SPC t c | M-SPC t c | Fill Column Indicator |
+| SPC t f | M-SPC t f | Flycheck              |
+| SPC t F | M-SPC t F | Frame fullscreen      |
+| SPC t g | M-SPC t g | Evil goggles          |
+| SPC t I | M-SPC t I | Indent style          |
+| SPC t l | M-SPC t l | Line numbers          |
+| SPC t p | M-SPC t p | org-tree-slide mode   |
+| SPC t r | M-SPC t r | Read-only mode        |
+| SPC t t | M-SPC t t | Pomodoro timer        |
+| SPC t v | M-SPC t v | Visible mode          |
+| SPC t w | M-SPC t w | Soft line wrapping    |
+| SPC t z | M-SPC t z | Zen mode              |
+| SPC t Z | M-SPC t Z | Zen mode (fullscreen) |
+
+** +Window
+| EVIL      | EMACS     |                         |
+|-----------+-----------+-------------------------|
+| SPC w w   | C-x o     | evil-window-next        |
+| SPC w d   | C-x 0     | evil-window-delete      |
+| SPC w C-o | C-x 1     | delete-other-windows    |
+| SPC w s   | C-x 2     | evil-window-split       |
+| SPC w v   | C-x 3     | evil-window-vsplit      |
+| SPC w f   | C-x 4 f   | ffap-other-window       |
+|           | C-x 4 d   | dired-other-window      |
+|           | C-x 4 C-j | dired-jump-other-window |
+
+** +Dired
+| EVIL    | EMACS | OHTER   |                           |
+|---------+-------+---------+---------------------------|
+| SPC f d | C-x d | SPC o - | open Dired                |
+|---------+-------+---------+---------------------------|
+| h/j/k/l |       |         | dired-navigation          |
+| C       | C     |         | dired-do-copy             |
+| R       | R     |         | dired-do-rename           |
+| D       | D     |         | dired-do-delete           |
+| M       | M     |         | dired-do-chmod            |
+| O       | O     |         | dired-do-chown            |
+| -       | -     |         | dired-up-directory        |
+| +       | +     |         | dired-create-directory    |
+| m       | m     |         | dired-mark                |
+| u       | u     |         | dired-umark               |
+| U       | U     |         | dired-unmark-all-marks    |
+| t       | t     |         | dired-toggle-marks        |
+| o       | o     |         | dired-sort-toggle-or-edit |
+| )       | )     |         | dired-git-info-mode       |
+| (       | (     |         | dired-hide-details-mode   |
+| i       | i     |         | dired-toggle-read-only    |
+| d       | d     |         | dired-flag-file-deletion  |
+| x       | x     |         | dired-do-flagged-delete   |
+| g o     | g o   |         | dired-view-file           |
+
+* Quick, horizontal movements with Evil
+** Inine navigation
+- =f= and then the letter you want to navigate to.
+  + =,= will go backward
+  + =;= will go forward after that "find"
+- =t= to find and move cursor to the character before what you've searched.
+- =v= puts you in visual mode. You can select text by with =v t some-char-you-navigate-to= or =v f some-char-you-navigate-to=
+- =;= to jump to the next find
+- =,= to jump to the previous one
+- =s= to snipe
+
+| EVIL    | OTHER                 |
+|---------+-----------------------|
+| g s SPC | evil-motion-state-map |
+| g s /   | evil-motion-state-map |
+
+** Evil multiedit
+|------+----------------------------------------------|
+| gzz  | +multiple-cursors/evil-mc-toggle-cursor-here |
+| gzt  | +multiple-cursors/evil-mc-toggle-cursors     |
+| M-d  | evil-multiedit-match-symbol-and-next         |
+| M-D  | evil-multiedit-match-and-prev                |
+| C-n  | evil-multiedit-next                          |
+| C-p  | evil-multiedit-prev                          |
+| D    | evil-multiedit--delete-occurrences           |
+| C    | evil-multiedit--change-line                  |
+| A    | evil-multiedit--append-line                  |
+| I    | evil-multiedit--insert-line                  |
+| $    | evil-multiedit-end-of-line                   |
+| 0    | evil-multiedit-beginning-of-line             |
+| ^    | evil-multiedit-first-non-blank               |
+| gg   | iedit-goto-first-occurrence                  |
+| G    | iedit-goto-last-occurrence                   |
+
+* Other
+  | EMACS                                   |                       |
+  |-----------------------------------------+-----------------------|
+  | C-x k                                   | kill-buffer           |
+  | C-x u                                   | undo-tree-visualize   |
+  | C-x untabify RET                        | Convert tab to space  |
+  | C-x h => M-x delete-duplicate-lines RET | Delete duplicate line |
+  | C-x h => M-x flush-lines RET ^$ RET     | Delete blank line     |
+  | M-x global-visual-line-mode RET         | Toggle wrap           |
