@@ -265,7 +265,7 @@ endif
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+  " autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin(expand('~/.vim/plugged'))
