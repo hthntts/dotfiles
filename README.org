@@ -1,0 +1,11 @@
+#+title: Dotfiles
+
+* Download chezmoi config
+#+begin_src bash
+wget -nc -P ~/.local/share/chezmoi/ https://raw.githubusercontent.com/hthntts/dotfiles/main/chezmoi/.local/share/chezmoi/.chezmoiexternal.toml
+#+end_src
+
+* Apply dotfiles
+#+begin_src bash
+chezmoi -R --force update
+#+end_src
