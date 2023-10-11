@@ -1,0 +1,44 @@
+{
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"]
+    }
+  },
+
+  "snippet.statusText": "Ⓢ On",
+
+  "suggest.noselect": false,
+  "suggest.detailField": "abbr",
+  "suggest.snippetIndicator": "",
+  "suggest.removeDuplicateItems": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 2000,
+  "suggest.minTriggerInputLength": 1,
+
+  "diagnostic.displayByAle": false,
+  "diagnostic.refreshOnInsertMode": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+  "diagnostic.hintSign": "H",
+  "diagnostic.errorSign": "E",
+  "diagnostic.infoSign": "I",
+  "diagnostic.warningSign": "W",
+  "diagnostic.virtualText": true,
+  "diagnostic.enableMessage": "never",
+
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+
+  "list.source.grep.command": "rg",
+
+  "html.autoClosingTags": true,
+  "prettier.proseWrap": "always",
+  "python.formatting.provider": "autopep8",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true
+}
