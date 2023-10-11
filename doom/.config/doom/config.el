@@ -262,3 +262,12 @@
 (let ((personal-settings (concat me-directory "config.el")))
   (when (file-exists-p personal-settings)
     (load-file personal-settings)))
+
+;; fix "package cl is deprecated" at startup
+(defadvice! fixed-do-after-load-evaluation (abs-file)
+  :override #'do-after-load-evaluation
+  (dolist (a-l-element after-load-alist)
+    (when (and (stringp (car a-l-element))
+               (string-match-p (car a-l-element) abs-file))
+      (mapc #'funcall (cdr a-l-element))))
+  (run-hook-with-args 'after-load-functions abs-file))
