@@ -52,6 +52,7 @@ source $(brew --prefix)/opt/spaceship/spaceship.zsh
 [[ -f $HOME/.zsh/.functions.zsh ]] && source $HOME/.zsh/.functions.zsh
 [[ -f $HOME/.zsh/.fzf.zsh ]] && source $HOME/.zsh/.fzf.zsh
 [[ -f $HOME/.zsh/.gnu.zsh ]] && source $HOME/.zsh/.gnu.zsh
+[[ -f $HOME/.local.zsh ]] && source $HOME/.local.zsh
 
 ######### 󰊲 : plugins
 source ~/.zsh.plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
