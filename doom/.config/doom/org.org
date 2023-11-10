@@ -24,17 +24,19 @@
 | g k   | Go to previous headline                | *org-backward-element* |
 
 * Org
-| SPC m .   | Goto headline                               | *counsel-org-goto*        |
-| SPC m h   | Toggle heading                              | *org-toggle-heading*      |
-| SPC m i   | Toggle item                                 | *org-toggle-item*         |
-| SPC m x   | Toggle checkbox                             | *org-toggle-checkbox*     |
-| SPC m t   | Todo                                        | *org-todo*                |
-| SPC m d s | Add schedule                                | *org-schedule*            |
-| SPC o A   | Open agenda                                 | *org-agenda*              |
-| SPC m l l | Insert link                                 | *org-insert-Link*         |
-| SPC m l t | Toggle link display                         | *org-toggle-link-display* |
-| SPC m d d | Add deadline                                | *org-deadline*            |
-|           | =S + Arrow= (change date of scheduled item) |                           |
+| EVIL      | EMACS   |                                             |                           |
+|-----------+---------+---------------------------------------------+---------------------------|
+| SPC m .   |         | Goto headline                               | *counsel-org-goto*        |
+| SPC m h   |         | Toggle heading                              | *org-toggle-heading*      |
+| SPC m i   |         | Toggle item                                 | *org-toggle-item*         |
+| SPC m x   |         | Toggle checkbox                             | *org-toggle-checkbox*     |
+| SPC m t   |         | Todo                                        | *org-todo*                |
+| SPC m d s |         | Add schedule                                | *org-schedule*            |
+| SPC o A   |         | Open agenda                                 | *org-agenda*              |
+| SPC m l l | C-c C-l | Insert link                                 | *org-insert-Link*         |
+| SPC m l t |         | Toggle link display                         | *org-toggle-link-display* |
+| SPC m d d |         | Add deadline                                | *org-deadline*            |
+|           |         | =S + Arrow= (change date of scheduled item) |                           |
 
 * Evil
 | v a e | Select an element |

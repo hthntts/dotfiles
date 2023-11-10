@@ -369,7 +369,7 @@
 |           | C-x 4 C-j | dired-jump-other-window |
 
 ** +Dired
-| EVIL    | EMACS | OHTER   |                           |
+| EVIL    | EMACS | OTHER   |                           |
 |---------+-------+---------+---------------------------|
 | SPC f d | C-x d | SPC o - | open Dired                |
 |---------+-------+---------+---------------------------|
@@ -392,6 +392,19 @@
 | d       | d     |         | dired-flag-file-deletion  |
 | x       | x     |         | dired-do-flagged-delete   |
 | g o     | g o   |         | dired-view-file           |
+
+** mu4e
+| EVIL    | EMACS   | OTHER |                               |
+|---------+---------+-------+-------------------------------|
+| SPC o m |         |       | Open Dired                    |
+| A       |         |       | Select mine part action       |
+| C       |         |       | Compose New                   |
+| R       |         |       | Compose Reply                 |
+| a       |         |       | View action                   |
+| e       |         |       | Viewing externally attachment |
+| g x     |         |       | Go to url                     |
+| o       |         |       | Save attachment               |
+| SPC m a | C-c C-a |       | Attach file                   |
 
 * Quick, horizontal movements with Evil
 ** Inine navigation
@@ -428,11 +441,12 @@
 | G    | iedit-goto-last-occurrence                   |
 
 * Other
-  | EMACS                                   |                       |
-  |-----------------------------------------+-----------------------|
-  | C-x k                                   | kill-buffer           |
-  | C-x u                                   | undo-tree-visualize   |
-  | C-x untabify RET                        | Convert tab to space  |
-  | C-x h => M-x delete-duplicate-lines RET | Delete duplicate line |
-  | C-x h => M-x flush-lines RET ^$ RET     | Delete blank line     |
-  | M-x global-visual-line-mode RET         | Toggle wrap           |
+  | EMACS                                   |                         |
+  |-----------------------------------------+-------------------------|
+  | C-x k                                   | kill-buffer             |
+  | C-x u                                   | undo-tree-visualize     |
+  | C-x i                                   | insert-all-text-in-file |
+  | C-x untabify RET                        | Convert tab to space    |
+  | C-x h => M-x delete-duplicate-lines RET | Delete duplicate line   |
+  | C-x h => M-x flush-lines RET ^$ RET     | Delete blank line       |
+  | M-x global-visual-line-mode RET         | Toggle wrap             |
