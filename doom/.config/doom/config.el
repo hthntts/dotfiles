@@ -3,6 +3,7 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 ;; (setq user-full-name "John Doe"
@@ -14,7 +15,7 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
@@ -35,11 +36,12 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 ;; (setq org-directory "~/org/")
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -73,201 +75,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;;; Modeline
-(after! doom-modeline
-  (setq doom-modeline-enable-word-count t
-        doom-modeline-major-mode-icon t
-        doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-file-name-style 'truncate-upto-project))
-
-;;; Info
-(setq +doom-dashboard-banner-padding '(0 . 2)
-      confirm-kill-emacs nil
-      ;; initial-frame-alist '((top . 100) (left . 100) (width . 115) (height . 35))
-      kill-whole-line t
-      pixel-scroll-precision-mode t)
-(add-hook 'window-setup-hook #'toggle-frame-maximized)
-
-;;; Project
-(defun tux-projectile-switch-project-action ()
-  (set-frame-parameter nil 'tux-projectile-project-name projectile-project-name)
-  (projectile-run-eshell)
-  (projectile-find-file))
-
-(setq projectile-switch-project-action 'tux-projectile-switch-project-action)
-(setq frame-title-format
-      '(""
-        "%b"
-        (:eval
-         (let ((project-name (projectile-project-name)))
-           (if (not (string= "-" project-name))
-               (format " ● %s" project-name)
-             (format " ● %s" (frame-parameter nil 'tux-projectile-project-name)))))))
-
-;;; Python
-(defun autoload-venv()
-  (cond
-   ((string= (projectile-project-name) "py")
-    (pyvenv-activate "~/.venv/python"))
-   ((string= (projectile-project-name) "ansible")
-    (pyvenv-activate "~/.venv/python"))
-   ((string= (projectile-project-name) "test")
-    (pyvenv-activate "~/.venv/test"))))
-(add-hook 'projectile-after-switch-project-hook #'autoload-venv)
-
-;;; Seach engine
-(engine-mode t)
-(engine/set-keymap-prefix (kbd "C-c s"))
-(defengine duckduckgo
-  "https://duckduckgo.com/?q=%s"
-  :keybinding "d")
-(defengine github
-  "https://github.com/search?ref=simplesearch&q=%s"
-  :keybinding "h")
-(defengine npm
-  "https://www.npmjs.com/search?q=%s"
-  :keybinding "n")
-(defengine crates
-  "https://crates.io/search?q=%s"
-  :keybinding "c")
-(defengine localhost
-  "http://localhost:%s"
-  :keybinding "l")
-(defengine translate
-  "https://translate.google.com/?sl=en&tl=vi&text=%s&op=translate"
-  :keybinding "t")
-(defengine youtube
-  "http://www.youtube.com/results?aq=f&oq=&search_query=%s"
-  :keybinding "y")
-(defengine google
-  "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-  :keybinding "g")
-
-;;; Tux
-;; Emulating vi's % key
-(after! smartparens
-  (defun tux/goto-match-paren (arg)
-    "Go to the matching paren/bracket, otherwise (or if ARG is not
-    nil) insert %.  vi style of % jumping to matching brace."
-    (interactive "p")
-    (if (not (memq last-command '(set-mark
-                                  cua-set-mark
-                                  tux/goto-match-paren
-                                  down-list
-                                  up-list
-                                  end-of-defun
-                                  beginning-of-defun
-                                  backward-sexp
-                                  forward-sexp
-                                  backward-up-list
-                                  forward-paragraph
-                                  backward-paragraph
-                                  end-of-buffer
-                                  beginning-of-buffer
-                                  backward-word
-                                  forward-word
-                                  mwheel-scroll
-                                  backward-word
-                                  forward-word
-                                  mouse-start-secondary
-                                  mouse-yank-secondary
-                                  mouse-secondary-save-then-kill
-                                  move-end-of-line
-                                  move-beginning-of-line
-                                  backward-char
-                                  forward-char
-                                  scroll-up
-                                  scroll-down
-                                  scroll-left
-                                  scroll-right
-                                  mouse-set-point
-                                  next-buffer
-                                  previous-buffer
-                                  previous-line
-                                  next-line
-                                  back-to-indentation
-                                  doom/backward-to-bol-or-indent
-                                  doom/forward-to-last-non-comment-or-eol
-                                  )))
-        (self-insert-command (or arg 1))
-      (cond ((looking-at "\\s\(") (sp-forward-sexp) (backward-char 1))
-            ((looking-at "\\s\)") (forward-char 1) (sp-backward-sexp))
-            (t (self-insert-command (or arg 1))))))
-  (map! "%" 'tux/goto-match-paren))
-
-;; Add file keybinding
-(defun tux/add-file-keybinding (key file &optional desc)
-  (let ((key key)
-        (file file)
-        (desc desc))
-    (map! :desc (or desc file)
-          key
-          (lambda () (interactive) (find-file file)))))
-
-;; Org convert keyword case to lower
-(defun tux/org-convert-keyword-case-to-lower ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (let ((count 0)
-          (case-fold-search nil))
-      (while (re-search-forward "^[ \t]*#\\+[A-Z_]+" nil t)
-        (unless (s-matches-p "RESULTS" (match-string 0))
-          (replace-match (downcase (match-string 0)) t)
-          (setq count (1+ count))))
-      (message "Replaced %d occurances" count))))
-
 (setq me-directory "~/Sync/personal/emacs/")
 
-;; Org
-(let ((myorg-settings (concat me-directory "org.el")))
-  (when (file-exists-p myorg-settings)
-    (load-file myorg-settings)))
+(let ((my-emacs-settings (concat me-directory "emacs.el")))
+  (when (file-exists-p my-emacs-settings)
+    (load-file my-emacs-settings)))
 
-;;; vterm
-(after! vterm
-  ;; Use default system shell
-  (setq-default vterm-shell (getenv "SHELL"))
-  ;; Maximum scrollback to the max
-  (setq vterm-max-scrollback 10000)
-  ;; Make vterm as snappy as it can be
-  (setq vterm-timer-delay nil)
-  ;; Use bash as default shell in remote servers.
-  (pushnew! vterm-tramp-shells
-            '("ssh" "/bin/bash")
-            '("scp" "/bin/bash")))
-;; Make urls clickable in vterm modes
-(add-hook! vterm-mode #'goto-address-mode)
-
-(defun +vterm/split-right ()
-  "Create a new vterm window to the right of the current one."
-  (interactive)
-  (let* ((ignore-window-parameters t)
-         (dedicated-p (window-dedicated-p)))
-    (split-window-horizontally)
-    (other-window 1)
-    (+vterm/here default-directory)))
-(global-set-key (kbd "<f8>") #'+vterm/split-right)
-
-;;; Dired tramp
-(setq remote-file-name-inhibit-cache nil)
-(setq vc-ignore-dir-regexp
-      (format "%s\\|%s"
-              vc-ignore-dir-regexp
-              tramp-file-name-regexp))
-(setq tramp-verbose 1)
-(setq tramp-default-method "ssh")
-
-;;; Me
-(let ((personal-settings (concat me-directory "config.el")))
-  (when (file-exists-p personal-settings)
-    (load-file personal-settings)))
-
-;; fix "package cl is deprecated" at startup
-(defadvice! fixed-do-after-load-evaluation (abs-file)
-  :override #'do-after-load-evaluation
-  (dolist (a-l-element after-load-alist)
-    (when (and (stringp (car a-l-element))
-               (string-match-p (car a-l-element) abs-file))
-      (mapc #'funcall (cdr a-l-element))))
-  (run-hook-with-args 'after-load-functions abs-file))
+(let ((my-org-settings (concat me-directory "org.el")))
+  (when (file-exists-p my-org-settings)
+    (load-file my-org-settings)))
