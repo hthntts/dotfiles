@@ -25,6 +25,7 @@ ctrl-c: Copy to Clipboard'"
 [[ -d $HOME/.bin ]] && export PATH="${HOME}/.bin:$PATH"
 [[ -d $HOME/.cabal/bin ]] && export PATH="${HOME}/.cabal/bin:$PATH"
 [[ -d $HOME/.emacs.d/bin ]] && export PATH="${HOME}/.emacs.d/bin:$PATH"
+[[ -d $HOME/.venv/python/bin ]] && export PATH="${HOME}/.venv/python/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
 
