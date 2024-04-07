@@ -14,8 +14,8 @@ zstyle ':completion:*:descriptions' format %F{default}%B%{$__CONFIG[ITALIC_ON]%}
 zstyle ':completion:*' menu select
 
 ######### 󰘶 + 󰌒 : reverse menu complete
-if tput cbt &> /dev/null; then
-  bindkey "$(tput cbt)" reverse-menu-complete
+if tput cbt &>/dev/null; then
+    bindkey "$(tput cbt)" reverse-menu-complete
 fi
 
 ######### 󰌌 : bindkey
@@ -35,12 +35,12 @@ zstyle ':chpwd:*' recent-dirs-default true
 
 #########  : emacs terminal
 if [[ $TERM == "dumb" ]]; then
-  PS1='%(?..[%?])%!:%~%# '
-  unsetopt zle
-  unsetopt prompt_cr
-  unsetopt prompt_subst
-  unfunction precmd
-  unfunction preexec
+    PS1='%(?..[%?])%!:%~%# '
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
 fi
 
 #########  : spaceship

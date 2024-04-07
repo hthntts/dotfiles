@@ -4,41 +4,42 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias psg="ps aux $([[ -n "$(uname -a | grep CYGWIN)" ]] && echo '-W') | grep -i $1"
 alias pullall="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
 alias reload="source $HOME/.zshrc"
-alias search="python3 ~/Sync/personal/search.py"
+alias search="python3 ~/Sync/personal/other/search.py"
+alias tmuxw="sh ~/Sync/personal/other/tmuxw.sh"
 alias v="fd --type f | fzf -m --prompt='  Fuzzy Finder > ' --reverse | xargs nvim"
 
 #########  : use `\vim` or `command vim` to get the real vim.
 if
-  command -v nvim >/dev/null 2>&1
+    command -v nvim >/dev/null 2>&1
 then
-  alias vim=nvim
+    alias vim=nvim
 fi
 
 #########  : fast and user-friendly alternative to 'find'
 if
-  command -v fd-find >/dev/null 2>&1
+    command -v fd-find >/dev/null 2>&1
 then
-  alias fd=fdfind
+    alias fd=fdfind
 fi
 
 ######### 󰉋 : exa icon
 if
-  command -v exa >/dev/null 2>&1
+    command -v exa >/dev/null 2>&1
 then
-  alias ls="exa --icons --group-directories-first"
-  alias ll="exa -l -g --icons --group-directories-first"
-  alias lla="ll -a"
-  alias tree="exa -T --icons"
+    alias ls="exa --icons --group-directories-first"
+    alias ll="exa -l -g --icons --group-directories-first"
+    alias lla="ll -a"
+    alias tree="exa -T --icons"
 else
-  if [[ "$(uname -s | awk '{print tolower($1)}')" = darwin* ]]; then
-    alias ls="gls --color -h --group-directories-first"
-    alias ll="gls --color -l -h --group-directories-first"
-    alias lla="ll -a"
-  else
-    alias ls="ls --color -h --group-directories-first"
-    alias ll="ls --color -l -h --group-directories-first"
-    alias lla="ll -a"
-  fi
+    if [[ "$(uname -s | awk '{print tolower($1)}')" = darwin* ]]; then
+        alias ls="gls --color -h --group-directories-first"
+        alias ll="gls --color -l -h --group-directories-first"
+        alias lla="ll -a"
+    else
+        alias ls="ls --color -h --group-directories-first"
+        alias ll="ls --color -l -h --group-directories-first"
+        alias lla="ll -a"
+    fi
 fi
 
 ######### 󰇄 : open app on macos
