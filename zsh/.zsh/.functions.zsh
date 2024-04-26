@@ -240,22 +240,20 @@ run-export-profile() {
     done
 }
 
-######### Hàm convert_pkcs12 để chuyển đổi PFX sang PEM
-convert_pkcs12() {
-  # Kiểm tra số lượng đối số
+######### convert ssl
+# convert ssl to pfx pem
+convert_to_pfx_pem() {
   if [[ $# -ne 5 ]]; then
-    echo "Usage: convert_pkcs12 file_crt file_private_key file_ca output_file_pfx output_file_pem"
+    echo "Usage: convert_to_pfx_pem file_crt file_private_key file_ca output_file_pfx output_file_pem"
     return 1
   fi
 
-  # Gán biến cho các đối số
   local input_crt="$1"
   local input_key="$2"
   local input_ca="$3"
   local output_pfx="$4"
   local output_pem="$5"
 
-  # Chuyển đổi sang PFX
   openssl pkcs12 \
     -export \
     -certpbe PBE-SHA1-3DES \
@@ -266,10 +264,28 @@ convert_pkcs12() {
     -in "$input_crt" \
     -certfile "$input_ca"
 
-  # Chuyển đổi sang PEM
   cat "$input_key" > "$output_pem"
   cat "$input_crt" >> "$output_pem"
   cat "$input_ca" >> "$output_pem"
 
-  echo "Conversion complete: PFX: $output_pfx, PEM: $output_pem"
+  echo "- PFX -> $output_pfx"
+  echo "- PEM -> $output_pem"
+}
+
+# convert PFX to PEM
+convert_pfx_to_pem() {
+  if [[ $# -ne 2 ]]; then
+    echo "Usage: convert_pfx_to_pem file_pfx output_file_pem"
+    return 1
+  fi
+
+  local input_pfx="$1"
+  local output_pem="$2"
+
+  openssl pkcs12 \
+    -in "$input_pfx" \
+    -out "$output_pem" \
+    -nodes
+
+  echo "- PEM -> $output_pem"
 }
