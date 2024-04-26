@@ -58,7 +58,7 @@ catfol() {
 ######### scratch | create scratch subshell temp
 scratch() {
   local SCRATCH=$(mktemp -d)
-  echo 'Spawing subshell in scratch directory:'
+  echo 'Spawning subshell in scratch directory:'
   echo "  $SCRATCH"
   (cd $SCRATCH; zsh)
   echo "Removing scratch directory"
@@ -238,4 +238,38 @@ run-export-profile() {
       gnupath=$(find /usr/local/Cellar -type d | grep gnubin | grep $i)
       echo "export PATH='$gnupath':\"\$PATH\"" >> $HOME/.zsh/.gnu.zsh
     done
+}
+
+######### Hàm convert_pkcs12 để chuyển đổi PFX sang PEM
+convert_pkcs12() {
+  # Kiểm tra số lượng đối số
+  if [[ $# -ne 5 ]]; then
+    echo "Usage: convert_pkcs12 file_crt file_private_key file_ca output_file_pfx output_file_pem"
+    return 1
+  fi
+
+  # Gán biến cho các đối số
+  local input_crt="$1"
+  local input_key="$2"
+  local input_ca="$3"
+  local output_pfx="$4"
+  local output_pem="$5"
+
+  # Chuyển đổi sang PFX
+  openssl pkcs12 \
+    -export \
+    -certpbe PBE-SHA1-3DES \
+    -keypbe PBE-SHA1-3DES \
+    -nomac \
+    -out "$output_pfx" \
+    -inkey "$input_key" \
+    -in "$input_crt" \
+    -certfile "$input_ca"
+
+  # Chuyển đổi sang PEM
+  cat "$input_key" > "$output_pem"
+  cat "$input_crt" >> "$output_pem"
+  cat "$input_ca" >> "$output_pem"
+
+  echo "Conversion complete: PFX: $output_pfx, PEM: $output_pem"
 }
