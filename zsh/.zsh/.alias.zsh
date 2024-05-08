@@ -51,7 +51,7 @@ alias word="open -a Microsoft\ Word"
 # (work at any position within the command line)
 alias -g C="| pbcopy"
 alias -g F="| fzf -m --prompt='  Fuzzy Finder > '"
-alias -g G="| grep"
+alias -g G="| grep -i"
 alias -g H="| head"
 alias -g L="| less"
 alias -g M="| more"
