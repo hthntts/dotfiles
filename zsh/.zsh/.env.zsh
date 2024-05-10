@@ -49,8 +49,8 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 ######### editor
-export EDITOR="emacsclient"
-export ALTERNATE_EDITOR="nvim"
+export EDITOR="nvim"
+export ALTERNATE_EDITOR="emacsclient"
 
 ######### nvm
 export NVM_DIR="$HOME/.nvm"
