@@ -256,6 +256,13 @@ local mappings = {
         q = { '<cmd>q<cr>', 'Quit Nvim' },
         Q = { '<cmd>qa!<cr>', 'Force Quit Nvim' },
     },
+    r = {
+        name = icons.diagnostics.Hint .. 'Refactor',
+        b = { "<cmd>lua require('spectre').open_file_search()<cr>", 'Replace Buffer' },
+        S = { "<cmd>lua require('spectre').open()<cr>", 'Replace' },
+        s = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], 'Replace Word' },
+        w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", 'Replace Word' },
+    },
     s = {
         name = icons.ui.Search .. 'Search',
         ['"'] = { '<cmd>Telescope registers<cr>', 'Registers' },
