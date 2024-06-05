@@ -55,6 +55,12 @@ catfol() {
   cat $1 | tr -d "\n"
 }
 
+######### text.zenhub.vn
+text() {
+  export CRYPTGEON_SERVER=https://text.zenhub.vn
+  cryptgeon send text "$@" | grep zenhub.vn | pbcopy
+}
+
 ######### scratch | create scratch subshell temp
 scratch() {
   local SCRATCH=$(mktemp -d)
