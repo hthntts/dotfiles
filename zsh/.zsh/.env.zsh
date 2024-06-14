@@ -38,6 +38,7 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export ZT_NOTIFICATION_SOUND=Ping
 
 ######### openjdk
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
